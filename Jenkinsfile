@@ -18,6 +18,7 @@ pipeline {
                 // Compilation: trouve le fichier source dans src/application
                 sh 'javac src/application/Test.java' 
             }
+            
         }
         
         stage('Execute code') {
@@ -25,6 +26,13 @@ pipeline {
                 // Exécution: utilise le sous-dossier src/application comme classpath
                 sh 'java -cp src/application Test' 
             }
+            
         }
+        stage('display message') {
+            steps {
+                echo 'Hello from github'
+            }
+        }
+        
     }
 }
